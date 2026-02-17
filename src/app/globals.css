@@ -1,26 +1,154 @@
 @import "tailwindcss";
 
+@theme {
+  --color-bg-primary: #F5F2E8;
+  --color-bg-secondary: #EFEBD8;
+  --color-bg-card: rgba(255, 255, 255, 0.4);
+
+  --color-emerald-primary: #064E3B;
+  --color-gold-accent: #B45309;
+
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #4B5563;
+
+  --font-heading: "EB Garamond", serif;
+  --font-body: "Inter", sans-serif;
+
+  --transition-fluid: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* === BASE === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* === TYPOGRAPHY === */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  color: var(--color-emerald-primary);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-emerald-primary), var(--color-gold-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* === THE ILLUMINATED FOLIO UTILITIES === */
+
+/* The "Deckle Edge" - Hand torn paper effect */
+.deckle-edge {
+  position: relative;
+}
+
+.deckle-top::before,
+.deckle-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: var(--color-bg-primary);
+  /* Fill the color to cover */
+  pointer-events: none;
+  z-index: 5;
+}
+
+.deckle-top::before {
+  top: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,100 Q10,90 20,100 T40,100 T60,100 T80,100 T100,100 T120,100 T140,100 T160,100 T180,100 T200,100 T220,100 T240,100 T260,100 T280,100 T300,100 T320,100 T340,100 T360,100 T380,100 T400,100 T420,100 T440,100 T460,100 T480,100 T500,100 T520,100 T540,100 T560,100 T580,100 T600,100 T620,100 T640,100 T660,100 T680,100 T700,100 T720,100 T740,100 T760,100 T780,100 T800,100 T820,100 T840,100 T860,100 T880,100 T900,100 T920,100 T940,100 T960,100 T980,100 T1000,100 V0 H0 Z' fill='black'/%3E%3C/svg%3E");
+  mask-size: 100% 40px;
+  top: -40px;
+  /* Adjust if needed to sit on top */
+}
+
+/* For inside the container deckle edges */
+.deckle-edge.overflow-hidden .deckle-top::before {
+  top: 0;
+}
+
+.deckle-bottom::after {
+  bottom: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0 Q10,10 20,0 T40,0 T60,0 T80,0 T100,0 T120,0 T140,0 T160,0 T180,0 T200,0 T220,0 T240,0 T260,0 T280,0 T300,0 T320,0 T340,0 T360,0 T380,0 T400,0 T420,0 T440,0 T460,0 T480,0 T500,0 T520,0 T540,0 T560,0 T580,0 T600,0 T620,0 T640,0 T660,0 T700,0 T720,0 T740,0 T760,0 T780,0 T800,0 T820,0 T840,0 T860,0 T880,0 T900,0 T920,0 T940,0 T960,0 T980,0 T1000,0 V100 H0 Z' fill='black'/%3E%3C/svg%3E");
+  mask-size: 100% 40px;
+}
+
+/* Layered Folio - Stacked sections */
+.folio-layer {
+  position: relative;
+  background: var(--color-bg-primary);
+  box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+/* Organic Text Flow */
+.folio-text {
+  max-width: 65ch;
+  /* Ideal reading width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 5vw;
+}
+
+/* Noise Overlay (Persisted) */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Girih Grid (Subtle) */
+.girih-dot-bg {
+  background-image: radial-gradient(var(--color-emerald-primary) 0.5px, transparent 0.5px);
+  background-size: clamp(20px, 5vw, 60px) clamp(20px, 5vw, 60px);
+  opacity: 0.05;
+}
+
+/* === RESPONSIVE LAYOUTS === */
+.folio-section {
+  padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+  .folio-section {
+    padding: 60px 0;
+  }
+}
+
+/* Scrollbar (Manuscript Style) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-emerald-primary);
+  border-radius: 10px;
 }
