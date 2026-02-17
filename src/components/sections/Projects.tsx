@@ -8,36 +8,36 @@ const projects = [
     {
         title: 'LocalFix',
         id: 'localfix',
-        subtitle: 'The Merchant\'s Ledger — SaaS Platform',
+        subtitle: 'The Merchant\'s Ledger — Ethical SaaS Platform',
         description:
-            'A digital sanctuary for home services, built with clean architecture and scalable intent. Designed to bring ease and order to the bustling world of service commerce.',
+            'A digital sanctuary for home services, built with clean architecture and ethical intent. Designed to bring ease and fairness to service commerce, upholding principles of transparency and trust (amanah).',
         tech: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB'],
         features: [
-            'Secure recurring payments with Razorpay',
+            'Secure recurring payments with Razorpay — protecting user trust',
             'Solid principles and clean architecture (Dependency Injection)',
-            'Efficient session management with Redis caching',
+            'Efficient session management with Redis caching — reducing resource waste',
         ],
         github: '#',
         live: '#',
         accent: 'var(--color-emerald-primary)',
-        note: 'Written in the late winter of 2024. Focused on dependency injection rituals.'
+        note: 'Crafted with ihsan (excellence) in winter 2024. Built on trust and fairness.'
     },
     {
         title: 'Art Mart',
         id: 'artmart',
-        subtitle: 'The Bazaar — E-commerce Scroll',
+        subtitle: 'The Ethical Bazaar — Fair Trade Marketplace',
         description:
-            'An ethereal marketplace where art meets architecture. Modular design and role-based rituals ensure a seamless journey for both seeker and provider.',
+            'A marketplace where art meets ethical commerce. Modular design and fair-trade principles ensure transparency for both creator and collector, respecting the rights and dignity of all participants.',
         tech: ['Node.js', 'Express', 'MongoDB', 'MVC Architecture', 'AWS'],
         features: [
-            'Fluid cart and wishlist rituals with reduced latency',
-            'Comprehensive admin oversight with filtered transaction logs',
-            'Resilient deployment on AWS EC2 with process management',
+            'Fluid cart and wishlist with reduced latency — efficient use of resources',
+            'Comprehensive admin oversight ensuring fair transactions',
+            'Resilient deployment on AWS EC2 — minimizing environmental impact',
         ],
         github: '#',
         live: '#',
         accent: 'var(--color-gold-accent)',
-        note: 'A study in high-concurrency bazaars and AWS deployment sigils.'
+        note: 'Built on principles of adl (justice) — a fair platform for all artists and collectors.'
     },
 ];
 

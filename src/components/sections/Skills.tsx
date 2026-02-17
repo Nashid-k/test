@@ -6,11 +6,13 @@ import {
     FiLayout, FiServer, FiDatabase, FiTool, FiGlobe, FiCode, FiLayers
 } from 'react-icons/fi';
 import { SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiExpress, SiMongodb, SiTypescript, SiPostman, SiRedux } from 'react-icons/si';
+import { IslamicBorder } from '../islamic';
 
 const categories = [
     {
         id: 'frontend',
         title: 'Frontend Artistry',
+        arabic: 'واجهة أمامية',
         icon: FiLayout,
         color: '#064E3B',
         skills: [
@@ -23,6 +25,7 @@ const categories = [
     {
         id: 'backend',
         title: 'Backend Architecture',
+        arabic: 'بنية خلفية',
         icon: FiServer,
         color: '#B45309',
         skills: [
@@ -34,6 +37,7 @@ const categories = [
     {
         id: 'database',
         title: 'Data Foundations',
+        arabic: 'أسس البيانات',
         icon: FiDatabase,
         color: '#022C22',
         skills: [
@@ -44,6 +48,7 @@ const categories = [
     {
         id: 'tools',
         title: 'Master\'s Toolkit',
+        arabic: 'أدوات الماجستير',
         icon: FiTool,
         color: '#D97706',
         skills: [
@@ -59,6 +64,9 @@ export default function Skills() {
 
     return (
         <section id="skills" className="folio-section folio-layer z-10 bg-bg-secondary/20">
+            <div className="absolute inset-0 girih-dot-bg opacity-10 pointer-events-none" />
+            <div className="absolute inset-0 arabesque-bg opacity-[0.02] pointer-events-none" />
+
             <div className="section-container relative">
                 <div className="text-center mb-12 md:mb-16">
                     <span className="text-[9px] md:text-[10px] uppercase tracking-[0.5em] text-gold-accent font-bold mb-4 block">
@@ -67,7 +75,10 @@ export default function Skills() {
                     <h2 className="text-3xl md:text-5xl font-heading mb-4 italic text-emerald-primary">
                         The Architect's <span className="gradient-text">Toolkit</span>
                     </h2>
-                    <div className="h-[0.5px] w-16 md:w-24 bg-emerald-primary/10 mx-auto" />
+                    <div className="h-[0.5px] w-16 md:w-24 bg-emerald-primary/10 mx-auto mb-6" />
+                    <p className="text-sm md:text-base text-text-secondary italic max-w-2xl mx-auto leading-relaxed px-4">
+                        Tools wielded with <span className="text-emerald-primary font-medium">intention</span>, creating digital beauty that serves the ummah.
+                    </p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-32">
@@ -82,18 +93,25 @@ export default function Skills() {
                                 stroke="currentColor"
                                 strokeWidth="0.5"
                             />
+                            <path
+                                d="M50 10 L56 35 L82 50 L56 65 L50 90 L44 65 L18 50 L44 35 Z"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="0.3"
+                                opacity="0.5"
+                            />
                         </svg>
 
                         {/* Orbit Circles */}
                         <div className="absolute inset-0 border border-emerald-primary/10 rounded-full scale-100" />
-                        <div className="absolute inset-0 border border-emerald-primary/5 rounded-full scale-[1.3] border-dashed animate-[spin_20s_linear_infinite]" />
+                        <div className="absolute inset-0 border border-emerald-primary/5 rounded-full scale-[1.3] border-dashed animate-[spin_30s_linear_infinite]" />
 
                         {/* Central Icon */}
                         <motion.div
                             key={activeCategory.id}
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            className="w-24 h-24 md:w-32 md:h-32 bg-bg-primary rounded-full shadow-2xl flex items-center justify-center p-6 border border-gold-accent/20 z-10"
+                            className="w-24 h-24 md:w-32 md:h-32 bg-bg-primary rounded-full shadow-2xl flex items-center justify-center p-6 border-2 border-gold-accent/20 z-10"
                         >
                             <activeCategory.icon className="w-full h-full text-gold-accent" />
                         </motion.div>
@@ -116,6 +134,7 @@ export default function Skills() {
                                     style={{ left: x, top: y, transform: 'translate(-50%, -50%)' }}
                                     whileHover={{ scale: 1.2 }}
                                     whileTap={{ scale: 0.9 }}
+                                    title={cat.title}
                                 >
                                     <cat.icon className="text-lg md:text-2xl" />
                                     {isActive && (
@@ -140,11 +159,21 @@ export default function Skills() {
                                 transition={{ duration: 0.5, ease: "circOut" }}
                                 className="bg-bg-secondary/40 backdrop-blur-sm p-8 md:p-12 border border-emerald-primary/10 rounded-sm deckle-edge deckle-top deckle-bottom shadow-2xl relative"
                             >
+                                {/* Arabic Title */}
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    className="absolute top-6 right-6 text-3xl font-bold text-emerald-primary/5"
+                                    style={{ fontFamily: 'Times New Roman, serif' }}
+                                >
+                                    {activeCategory.arabic}
+                                </motion.div>
+
                                 <h3 className="text-xl md:text-2xl font-heading italic text-emerald-primary mb-2">
                                     {activeCategory.title}
                                 </h3>
                                 <p className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-gold-accent font-bold mb-6 md:mb-8">
-                                    Discipline of the Folio
+                                    Discipline of the Craft
                                 </p>
 
                                 <div className="grid grid-cols-2 gap-4 md:gap-6">
@@ -169,11 +198,16 @@ export default function Skills() {
 
                                 {/* Marginalia Note */}
                                 <div className="mt-10 md:mt-12 pt-8 border-t border-emerald-primary/5 opacity-40 italic font-heading text-[10px] md:text-xs text-text-secondary text-right">
-                                    * Every skill is a brushstroke in the digital manuscript.
+                                    "Every skill honed is a step toward excellence in service."
                                 </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>
+                </div>
+
+                {/* Decorative Border */}
+                <div className="mt-16">
+                    <IslamicBorder variant="arabesque" className="w-full max-w-4xl mx-auto" />
                 </div>
             </div>
         </section>

@@ -19,17 +19,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fidha Fathima M | MERN Stack Developer",
+  title: "Fidha Fathima M | Muslimah Developer Rooted in Faith",
   description:
-    "Full-Stack Developer (MERN) with strong hands-on experience building scalable and responsive web applications. Skilled in React, Node.js, Express, and MongoDB.",
+    "A Muslimah Full-Stack Developer crafting digital solutions with ikhlas (sincerity), combining technical excellence in MERN stack with Islamic values. Building technology that serves the ummah.",
   keywords: [
-    "Fidha Fathima", "MERN Stack Developer", "Full Stack Developer",
-    "React Developer", "Node.js Developer", "Web Developer", "Portfolio",
+    "Fidha Fathima", "Muslimah Developer", "MERN Stack Developer", "Full Stack Developer",
+    "React Developer", "Node.js Developer", "Web Developer", "Islamic Portfolio",
+    "Ethical Tech", "Faith-based Developer",
   ],
   authors: [{ name: "Fidha Fathima M" }],
   openGraph: {
-    title: "Fidha Fathima M | MERN Stack Developer",
-    description: "Full-Stack Developer building scalable web applications with React, Node.js, Express, and MongoDB.",
+    title: "Fidha Fathima | Muslimah Developer Rooted in Faith",
+    description: "Crafting digital tapestry with ikhlas — Full-Stack Developer combining technical excellence with Islamic values.",
     type: "website",
   },
 };
