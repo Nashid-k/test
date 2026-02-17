@@ -1,78 +1,121 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { FiHeart } from 'react-icons/fi';
-import { IslamicSeal } from './islamic';
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi';
+import { useInView } from 'react-intersection-observer';
 
 export default function Footer() {
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
-    useEffect(() => {
-        setCurrentYear(new Date().getFullYear());
-    }, []);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-    return (
-        <footer className="folio-section folio-layer z-40 bg-bg-secondary/40 border-t border-emerald-primary/10 deckle-edge deckle-top">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold-accent/20 to-transparent" />
+  return (
+    <footer
+      ref={ref}
+      className="relative bg-bg-secondary py-16 md:py-20 border-t border-ink-light/10"
+    >
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          {/* Logo/Name */}
+          <div className="mb-6">
+            <motion.h2
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={inView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-4xl md:text-5xl font-display font-semibold text-ink-primary"
+            >
+              Fidha Fathima
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-accent-primary font-medium mt-2"
+            >
+              Full-Stack Developer
+            </motion.p>
+          </div>
 
-            <div className="section-container relative z-10 py-12 md:py-20 flex flex-col items-center gap-12">
-                {/* The Final Seal */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    className="relative"
-                >
-                    <IslamicSeal
-                        text="Fidha"
-                        subtitle="The Scribe"
-                        variant="star"
-                        size="lg"
-                    />
-                </motion.div>
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="text-ink-muted max-w-xl mx-auto mb-8 leading-relaxed"
+          >
+            Building elegant web applications with clean code and modern technologies.
+          </motion.p>
 
-                {/* Epilogue Text */}
-                <div className="text-center space-y-6 max-w-3xl px-4">
-                    <p className="text-[9px] md:text-[10px] uppercase tracking-[0.6em] text-gold-accent font-bold opacity-60">
-                        The Manuscript Concludes — Alhamdulillah
-                    </p>
-                    <div className="h-[0.5px] w-32 md:w-48 bg-emerald-primary/10 mx-auto" />
-                    <p className="text-base md:text-xl font-heading italic text-text-secondary max-w-2xl mx-auto leading-relaxed opacity-70">
-                        "Every digital experience is a narrative, and every narrative deserves a beautiful conclusion — crafted with <span className="text-emerald-primary">ikhlas</span> (sincerity) for the pleasure of Allah."
-                    </p>
-                </div>
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="flex items-center justify-center gap-6 mb-12"
+          >
+            <a
+              href="https://github.com/fidhafathima"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-bg-card border border-ink-light/10 rounded-lg flex items-center justify-center text-ink-secondary hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300 hover:scale-110"
+              aria-label="GitHub"
+            >
+              <FiGithub className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/in/fidhafathima"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-bg-card border border-ink-light/10 rounded-lg flex items-center justify-center text-ink-secondary hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300 hover:scale-110"
+              aria-label="LinkedIn"
+            >
+              <FiLinkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="mailto:contact@fidhafathima.dev"
+              className="w-12 h-12 bg-bg-card border border-ink-light/10 rounded-lg flex items-center justify-center text-ink-secondary hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300 hover:scale-110"
+              aria-label="Email"
+            >
+              <FiMail className="w-5 h-5" />
+            </a>
+          </motion.div>
 
-                {/* Closing Dua */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.8 }}
-                    className="bg-bg-primary/50 backdrop-blur-sm p-6 md:p-8 border border-emerald-primary/10 deckle-edge deckle-top deckle-bottom rounded-sm max-w-2xl mx-auto"
-                >
-                    <p className="text-base md:text-lg font-heading italic text-emerald-primary leading-relaxed text-center">
-                        "Our Lord, grant us good in this world and good in the Hereafter, and save us from the punishment of the Fire."
-                    </p>
-                    <p className="text-sm text-gold-accent/70 mt-3 tracking-widest uppercase text-center">
-                        — Surah Al-Baqarah 2:201
-                    </p>
-                </motion.div>
+          {/* Divider */}
+          <div className="divider-elegant w-48 mx-auto mb-8" />
 
-                {/* Legal Ritual */}
-                <div className="flex flex-col items-center gap-4 pt-12 border-t border-emerald-primary/5 w-full max-w-2xl px-4">
-                    <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[10px] md:text-xs text-text-secondary italic opacity-70 text-center">
-                        <span className="whitespace-nowrap">Crafted with</span>
-                        <FiHeart size={10} className="text-gold-accent animate-pulse" aria-hidden="true" />
-                        <span className="whitespace-nowrap">& iman (faith)</span>
-                        <span className="whitespace-nowrap">in Kerala</span>
-                        <div className="hidden sm:block w-1 h-1 rounded-full bg-gold-accent/40" />
-                        <span className="whitespace-nowrap">© {currentYear} Fidha Fathima M</span>
-                    </div>
-                    <p className="text-[9px] text-gold-accent/50 tracking-wide uppercase text-center">
-                        All praise is due to Allah SWT
-                    </p>
-                </div>
-            </div>
-        </footer>
-    );
+          {/* Copyright */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="text-sm text-ink-muted"
+          >
+            © {new Date().getFullYear()} Fidha Fathima M. All rights reserved.
+          </motion.p>
+        </motion.div>
+
+        {/* Back to Top Button */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 1, duration: 0.6 }}
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 w-12 h-12 bg-accent-primary text-white rounded-full flex items-center justify-center shadow-lg hover:bg-accent-dark transition-all duration-300 hover:scale-110 z-50"
+          aria-label="Back to top"
+        >
+          <FiArrowUp className="w-5 h-5" />
+        </motion.button>
+      </div>
+    </footer>
+  );
 }
