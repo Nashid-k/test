@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiSend } from 'react-icons/fi';
+import { FiMail, FiGithub, FiLinkedin, FiMapPin, FiSend, FiDownload } from 'react-icons/fi';
 
 const contactInfo = [
   {
@@ -138,20 +138,32 @@ export default function Contact() {
                 Whether you have a project in mind, want to discuss opportunities, or just want to say hello,
                 I'd love to hear from you.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="mailto:contact@fidhafathima.dev"
+                    className="btn-primary justify-center"
+                  >
+                    Send Me an Email
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/fidhafathima"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary justify-center"
+                  >
+                    Connect on LinkedIn
+                  </a>
+                </div>
                 <a
-                  href="mailto:contact@fidhafathima.dev"
-                  className="btn-primary justify-center"
-                >
-                  Send Me an Email
-                </a>
-                <a
-                  href="https://linkedin.com/in/fidhafathima"
+                  href="/Fidha_Fathima_Resume.pdf"
+                  download="Fidha_Fathima_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-secondary justify-center"
+                  className="btn-secondary justify-center border-accent-primary text-accent-primary hover:bg-accent-primary hover:text-white"
                 >
-                  Connect on LinkedIn
+                  <FiDownload className="w-4 h-4" />
+                  Download Resume
                 </a>
               </div>
             </div>

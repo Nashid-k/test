@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp, FiDownload } from 'react-icons/fi';
 import { useInView } from 'react-intersection-observer';
 
 export default function Footer() {
@@ -61,7 +61,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex items-center justify-center gap-6 mb-12"
+            className="flex items-center justify-center gap-6 mb-12 flex-wrap"
           >
             <a
               href="https://github.com/fidhafathima"
@@ -87,6 +87,17 @@ export default function Footer() {
               aria-label="Email"
             >
               <FiMail className="w-5 h-5" />
+            </a>
+            <a
+              href="/Fidha_Fathima_Resume.pdf"
+              download="Fidha_Fathima_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-bg-card border border-ink-light/10 rounded-lg flex items-center justify-center text-ink-secondary hover:text-accent-primary hover:border-accent-primary/30 transition-all duration-300 hover:scale-110"
+              aria-label="Download Resume"
+              title="Download Resume"
+            >
+              <FiDownload className="w-5 h-5" />
             </a>
           </motion.div>
 

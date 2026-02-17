@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { FiArrowDown, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FiArrowDown, FiGithub, FiLinkedin, FiMail, FiDownload } from 'react-icons/fi';
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -29,6 +29,22 @@ export default function Hero() {
         style={{ opacity, scale, y }}
         className="sticky top-0 h-screen flex flex-col items-center justify-center text-center px-4"
       >
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="mb-8"
+        >
+          <div className="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-accent-primary/20 shadow-2xl">
+            <img
+              src="/profile.jpeg"
+              alt="Fidha Fathima"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+
         {/* Greeting */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,7 +95,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3.2, duration: 0.8 }}
-          className="flex flex-col sm:flex-row items-center gap-4 mb-16"
+          className="flex flex-col sm:flex-row items-center gap-4 mb-8"
         >
           <a
             href="#projects"
@@ -102,6 +118,21 @@ export default function Hero() {
             Get In Touch
           </a>
         </motion.div>
+
+        {/* Download Resume */}
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.6, duration: 0.8 }}
+          href="/Fidha_Fathima_Resume.pdf"
+          download="Fidha_Fathima_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-accent-primary hover:text-accent-dark transition-colors duration-300 mb-16 font-medium"
+        >
+          <FiDownload className="w-5 h-5" />
+          Download Resume
+        </motion.a>
 
         {/* Social Links */}
         <motion.div
