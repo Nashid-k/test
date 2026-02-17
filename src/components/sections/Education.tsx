@@ -2,7 +2,8 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { FiBookOpen, FiMapPin, FiCalendar } from 'react-icons/fi';
+import { FiMapPin, FiCalendar } from 'react-icons/fi';
+import { IslamicBorder } from '../islamic';
 
 export default function Education() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -29,12 +30,15 @@ export default function Education() {
                 {/* Section Header */}
                 <div className="mb-14 md:mb-20 text-center">
                     <span className="text-[9px] md:text-[10px] uppercase tracking-[0.5em] text-gold-accent font-bold mb-4 block">
-                        Chapter IV — The Chronicler's Path
+                        Chapter IV — The Path of Knowledge
                     </span>
                     <h2 className="text-3xl md:text-5xl font-heading mb-6 italic text-emerald-primary">
                         Hall of <span className="gradient-text">Learning</span>
                     </h2>
-                    <div className="h-[0.5px] w-20 md:w-28 bg-emerald-primary/10 mx-auto" />
+                    <p className="text-sm md:text-base text-text-secondary italic max-w-2xl mx-auto leading-relaxed px-4 mt-4">
+                        "Seeking knowledge is an obligation upon every Muslim" — following this noble pursuit through academic excellence.
+                    </p>
+                    <div className="h-[0.5px] w-20 md:w-28 bg-emerald-primary/10 mx-auto mt-6" />
                 </div>
 
                 {/* Timeline Path */}
@@ -57,7 +61,7 @@ export default function Education() {
                     >
                         {/* Connector Star */}
                         <div className="absolute -left-[45px] md:left-auto md:-right-[66px] top-12 w-8 h-8 md:w-12 md:h-12 flex items-center justify-center z-20">
-                            <svg viewBox="0 0 100 100" className="w-full h-full text-gold-accent/60 animate-[spin_15s_linear_infinite]">
+                            <svg viewBox="0 0 100 100" className="w-full h-full text-gold-accent/60 animate-[spin_20s_linear_infinite]">
                                 <path d="M50 0 L61 39 L100 50 L61 61 L50 100 L39 61 L0 50 L39 39 Z" fill="currentColor" />
                             </svg>
                             <div className="absolute inset-0 bg-gold-accent/20 rounded-full blur-xl animate-pulse" />
@@ -100,6 +104,11 @@ export default function Education() {
                             </div>
                         </div>
                     </motion.div>
+                </div>
+
+                {/* Decorative Border */}
+                <div className="mt-16">
+                    <IslamicBorder variant="simple" className="w-full max-w-3xl mx-auto" />
                 </div>
             </motion.div>
         </section>

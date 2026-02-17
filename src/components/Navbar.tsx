@@ -7,6 +7,7 @@ import { HiMenuAlt4, HiX } from 'react-icons/hi';
 const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Values', href: '#values' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Education', href: '#education' },

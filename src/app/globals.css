@@ -1,12 +1,24 @@
 @import "tailwindcss";
 
 @theme {
+  /* Islamic Palette - Illuminated Manuscript Colors */
   --color-bg-primary: #F5F2E8;
   --color-bg-secondary: #EFEBD8;
   --color-bg-card: rgba(255, 255, 255, 0.4);
+  --color-bg-islamic: #FDF6E9;
 
+  /* Emerald Tones - Islamic Green */
   --color-emerald-primary: #064E3B;
+  --color-emerald-light: #065F46;
+  --color-emerald-dark: #022C22;
+  --color-emerald-pale: #D1FAE5;
+
+  /* Gold & Bronze - Illumination Colors */
   --color-gold-accent: #B45309;
+  --color-gold-light: #D97706;
+  --color-gold-dark: #92400E;
+  --color-gold-pale: #FEF3C7;
+  --color-bronze: #78350F;
 
   --color-text-primary: #1F2937;
   --color-text-secondary: #4B5563;
@@ -15,6 +27,7 @@
   --font-body: "Inter", sans-serif;
 
   --transition-fluid: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-islamic: all 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* === BASE === */
@@ -126,6 +139,116 @@ h4 {
   background-image: radial-gradient(var(--color-emerald-primary) 0.5px, transparent 0.5px);
   background-size: clamp(20px, 5vw, 60px) clamp(20px, 5vw, 60px);
   opacity: 0.05;
+}
+
+/* === ISLAMIC PATTERNS === */
+
+/* Arabesque Background - Flowing geometric pattern */
+.arabesque-bg {
+  background-image:
+    radial-gradient(circle at 25% 25%, var(--color-emerald-primary) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, var(--color-gold-accent) 1px, transparent 1px);
+  background-size: 40px 40px, 60px 60px;
+  opacity: 0.03;
+}
+
+/* Geometric Grid - Hexagonal pattern */
+.geometric-grid {
+  background-image:
+    linear-gradient(30deg, var(--color-emerald-primary) 1px, transparent 1px),
+    linear-gradient(150deg, var(--color-emerald-primary) 1px, transparent 1px),
+    linear-gradient(30deg, var(--color-emerald-primary) 1px, transparent 1px),
+    linear-gradient(150deg, var(--color-emerald-primary) 1px, transparent 1px);
+  background-size: 40px 70px;
+  background-position: 0 0, 0 0, 20px 35px, 20px 35px;
+  opacity: 0.03;
+}
+
+/* Star Pattern - 8-point star tessellation */
+.star-pattern {
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--color-gold-accent) 2px, transparent 2px),
+    conic-gradient(from 0deg at 50% 50%, transparent 0deg, transparent 45deg, var(--color-emerald-primary) 45deg, var(--color-emerald-primary) 46deg, transparent 46deg);
+  background-size: 60px 60px, 60px 60px;
+  opacity: 0.04;
+}
+
+/* Zellige Pattern - Moroccan tile-inspired */
+.zellige-pattern {
+  background-image:
+    linear-gradient(45deg, var(--color-gold-accent) 1px, transparent 1px),
+    linear-gradient(-45deg, var(--color-emerald-primary) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.03;
+}
+
+/* Interlaced Pattern - Complex geometric weave */
+.interlaced-pattern {
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, var(--color-emerald-primary) 10px, var(--color-emerald-primary) 11px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, var(--color-gold-accent) 10px, var(--color-gold-accent) 11px);
+  opacity: 0.02;
+}
+
+/* === ISLAMIC TEXTURE EFFECTS === */
+
+/* Parchment Texture - Aged paper feel */
+.parchment-texture {
+  background:
+    linear-gradient(to bottom, rgba(6, 78, 59, 0.02), rgba(180, 83, 9, 0.02)),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperFilter)'/%3E%3C/svg%3E");
+}
+
+/* Vellum Texture - Premium manuscript feel */
+.vellum-texture {
+  background:
+    linear-gradient(135deg, rgba(253, 246, 233, 0.5) 0%, rgba(239, 235, 216, 0.5) 100%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='vellumFilter'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.02' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23vellumFilter)' opacity='0.1'/%3E%3C/svg%3E");
+}
+
+/* === ISLAMIC BORDERS & FRAMES === */
+
+/* Ornate Border - Decorative frame */
+.islamic-border-ornate {
+  border: 2px solid var(--color-gold-accent);
+  border-image: repeating-linear-gradient(90deg, var(--color-gold-accent) 0px, var(--color-gold-accent) 4px, transparent 4px, transparent 8px) 1;
+  box-shadow:
+    inset 0 0 20px rgba(180, 83, 9, 0.05),
+    0 0 20px rgba(6, 78, 59, 0.05);
+}
+
+/* Double Border - Classic manuscript style */
+.islamic-border-double {
+  border: 4px double var(--color-emerald-primary);
+  box-shadow: inset 0 0 0 1px var(--color-gold-accent);
+}
+
+/* Corner Ornaments */
+.islamic-corners {
+  position: relative;
+}
+
+.islamic-corners::before,
+.islamic-corners::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-gold-accent);
+}
+
+.islamic-corners::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.islamic-corners::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
 }
 
 /* === RESPONSIVE LAYOUTS === */

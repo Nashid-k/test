@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { IslamicBorder, QuranicVerse } from '../islamic';
 
 export default function About() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -17,7 +18,7 @@ export default function About() {
         { label: 'Scribe', value: 'Fidha Fathima M' },
         { label: 'Origin', value: 'Kerala, India' },
         { label: 'Craft', value: 'Full-Stack Developer' },
-        { label: 'Spirit', value: 'BCA Scholar' },
+        { label: 'Heritage', value: 'BCA Scholar' },
     ];
 
     return (
@@ -27,6 +28,7 @@ export default function About() {
             className="folio-section folio-layer z-20"
         >
             <div className="absolute inset-0 girih-dot-bg opacity-10 pointer-events-none" />
+            <div className="absolute inset-0 arabesque-bg opacity-[0.02] pointer-events-none" />
 
             <motion.div
                 style={{ rotate, opacity }}
@@ -43,6 +45,16 @@ export default function About() {
                     <div className="h-[0.5px] w-20 md:w-24 bg-emerald-primary/10 mx-auto" />
                 </div>
 
+                {/* Quranic Verse */}
+                <div className="mb-16 md:mb-20">
+                    <QuranicVerse
+                        verse="وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ"
+                        translation="And I did not create the jinn and mankind except to worship Me."
+                        reference="Surah Adh-Dhariyat 51:56"
+                        showArabic={true}
+                    />
+                </div>
+
                 {/* Open Book Layout */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-emerald-primary/10 bg-bg-secondary/30 backdrop-blur-sm relative overflow-hidden deckle-edge deckle-top deckle-bottom shadow-2xl rounded-sm">
 
@@ -53,7 +65,7 @@ export default function About() {
                     <div className="p-8 md:p-14 lg:p-24 border-b lg:border-b-0 lg:border-r border-emerald-primary/5 relative">
                         {/* Marginalia Accent */}
                         <div className="absolute top-10 left-4 md:left-8 hidden lg:block">
-                            <span className="text-[10px] rotate-90 block origin-left text-gold-accent font-heading opacity-40">Ad Fontes</span>
+                            <span className="text-[10px] rotate-90 block origin-left text-gold-accent font-heading opacity-40">بِسْمِ ٱللَّٰهِ</span>
                         </div>
 
                         <h3 className="text-lg md:text-xl font-heading mb-6 italic text-gold-accent flex items-center gap-4">
@@ -63,8 +75,10 @@ export default function About() {
                         <p className="text-sm md:text-md font-body italic text-text-secondary leading-[1.8] text-justify mb-8 md:mb-10">
                             A Full-Stack Developer with strong hands-on experience building scalable and responsive web applications.
                             Skilled in <span className="text-emerald-primary font-medium">React, Node.js, Express, and MongoDB</span>, with a solid understanding of end-to-end application architecture.
-                            Passionate about writing clean, maintainable code and developing practical solutions through self-initiated projects
-                            that reflect real-world challenges.
+                        </p>
+                        <p className="text-sm md:text-md font-body italic text-text-secondary leading-[1.8] text-justify mb-8 md:mb-10">
+                            As a Muslimah, I approach every project with <span className="text-gold-accent font-medium">ikhlas</span> (sincerity), striving to create technology that benefits the ummah and upholds Islamic values in the digital space.
+                            My code reflects the <span className="text-emerald-primary font-medium">beauty of creation</span> — precise, purposeful, and harmonious.
                         </p>
 
                         <div className="space-y-5 pt-8 border-t border-emerald-primary/5">
@@ -91,9 +105,9 @@ export default function About() {
 
                         <div className="space-y-10 md:space-y-12">
                             {[
-                                { title: 'Scalability', desc: 'Building systems that grow organically, like geometric patterns expanding into infinity.' },
-                                { title: 'Authenticity', desc: 'Every line of code is written with purpose, reflecting a genuine commitment to quality.' },
-                                { title: 'Resilience', desc: 'Learning through failure to build robust applications that stand the test of time.' }
+                                { title: 'Taqwa (God-Consciousness)', desc: 'Building systems with integrity, ethical considerations, and awareness of our responsibility to Allah SWT.' },
+                                { title: 'Ikhlas (Sincerity)', desc: 'Every line of code written with pure intention, focusing on benefitting others rather than recognition.' },
+                                { title: 'Sabr (Patience)', desc: 'Embracing the challenges of development with steadfastness, knowing growth comes through perseverance.' }
                             ].map((pillar, i) => (
                                 <motion.div
                                     key={i}
@@ -114,14 +128,20 @@ export default function About() {
                             ))}
                         </div>
 
-                        {/* Ink Stamp Effect */}
-                        <div className="mt-14 md:mt-16 flex justify-end opacity-10 rotate-12 pointer-events-none">
+                        {/* Decorative Seal */}
+                        <motion.div
+                            initial={{ opacity: 0, rotate: -15 }}
+                            whileInView={{ opacity: 0.1, rotate: -12 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.6, duration: 0.8 }}
+                            className="mt-14 md:mt-16 flex justify-end pointer-events-none"
+                        >
                             <div className="w-20 h-20 md:w-24 md:h-24 border-2 md:border-4 border-emerald-primary rounded-full flex items-center justify-center p-1 md:p-2">
                                 <div className="w-full h-full border md:border-2 border-emerald-primary rounded-full flex items-center justify-center text-[8px] md:text-[10px] font-bold text-center leading-tight">
-                                    FIDHA M<br />CERTIFIED<br />CRAFT
+                                    FIDHA M<br />CRAFTED<br />W/ DEEN
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </motion.div>

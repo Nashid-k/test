@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import GeometricPattern from './GeometricPattern';
+import { ArabesquePatterns } from './islamic';
 
 export default function Preloader() {
     const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,7 @@ export default function Preloader() {
                     className="fixed inset-0 z-[100] flex items-center justify-center bg-bg-primary overflow-hidden"
                 >
                     <GeometricPattern opacity={0.08} />
+                    <ArabesquePatterns variant="girih" opacity={0.03} />
 
                     {/* Subtle Antique Vignette */}
                     <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(6,78,59,0.03)_100%)]" />
@@ -70,6 +72,17 @@ export default function Preloader() {
                                 Building Dreams • Rooted in Deen
                             </motion.p>
 
+                            {/* Bismillah */}
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 0.6 }}
+                                transition={{ delay: 1.3, duration: 1 }}
+                                className="text-lg md:text-2xl text-emerald-primary/50"
+                                style={{ fontFamily: 'Times New Roman, serif', direction: 'rtl' }}
+                            >
+                                بِسْمِ ٱللَّٰهِ
+                            </motion.p>
+
                             {/* Antique Progress Scroll */}
                             <div className="relative w-48 md:w-64 h-[1px] bg-emerald-primary/10 mt-4">
                                 <motion.div
@@ -88,19 +101,22 @@ export default function Preloader() {
                         </div>
                     </div>
 
-                    {/* Corner Symbols (Antique Motif) */}
+                    {/* Corner Ornaments (Islamic Motif) */}
                     {[0, 1, 2, 3].map((i) => (
                         <motion.div
                             key={i}
-                            className={`absolute w-16 h-16 border-emerald-primary/10 ${i === 0 ? 'top-10 left-10 border-t border-l' :
-                                    i === 1 ? 'top-10 right-10 border-t border-r' :
-                                        i === 2 ? 'bottom-10 left-10 border-b border-l' :
-                                            'bottom-10 right-10 border-b border-r'
+                            className={`absolute w-16 h-16 md:w-20 md:h-20 border-gold-accent/20 ${i === 0 ? 'top-10 left-10 border-t-2 border-l-2' :
+                                    i === 1 ? 'top-10 right-10 border-t-2 border-r-2' :
+                                        i === 2 ? 'bottom-10 left-10 border-b-2 border-l-2' :
+                                            'bottom-10 right-10 border-b-2 border-r-2'
                                 }`}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 0.8, duration: 1 }}
-                        />
+                        >
+                            {/* Corner Diamond */}
+                            <div className={`absolute w-3 h-3 bg-gold-accent/10 rotate-45 ${i < 2 ? 'bottom-0 right-0' : 'top-0 left-0'}`} />
+                        </motion.div>
                     ))}
                 </motion.div>
             )}
