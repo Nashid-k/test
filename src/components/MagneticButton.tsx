@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import { useRef, ReactNode } from 'react';
+import { useRef, ReactNode, useState, useEffect } from 'react';
 
 interface MagneticButtonProps {
     children: ReactNode;
@@ -19,14 +19,24 @@ export default function MagneticButton({
     target,
 }: MagneticButtonProps) {
     const ref = useRef<HTMLDivElement>(null);
+    const [isMobile, setIsMobile] = useState(true);
     const x = useMotionValue(0);
     const y = useMotionValue(0);
 
     const springX = useSpring(x, { stiffness: 150, damping: 15, mass: 0.1 });
     const springY = useSpring(y, { stiffness: 150, damping: 15, mass: 0.1 });
 
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const handleMouseMove = (e: React.MouseEvent) => {
-        if (!ref.current) return;
+        if (isMobile || !ref.current) return;
         const rect = ref.current.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
@@ -42,7 +52,12 @@ export default function MagneticButton({
     const Component = href ? motion.a : motion.div;
 
     return (
-        <div className="magnetic-wrap" ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <div 
+            className="inline-block" 
+            ref={ref} 
+            onMouseMove={handleMouseMove} 
+            onMouseLeave={handleMouseLeave}
+        >
             <Component
                 href={href}
                 target={target}

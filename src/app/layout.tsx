@@ -9,6 +9,7 @@ import "./globals.css";
 import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-display",
@@ -57,13 +58,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+      <body 
+        className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${sourceSans3.variable} ${libreBaskerville.variable} antialiased overflow-x-hidden`}
+        suppressHydrationWarning
+      >
+        <CustomCursor />
         <Preloader />
-        <div className={`${playfairDisplay.variable} ${cormorantGaramond.variable} ${sourceSans3.variable} ${libreBaskerville.variable} relative min-h-screen`}>
+        <div className="relative min-h-screen">
           <Navbar />
           <SmoothScroll>
-            <main className="relative">
+            <main className="relative z-10">
               {children}
             </main>
           </SmoothScroll>

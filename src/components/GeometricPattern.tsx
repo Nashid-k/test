@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 interface GeometricPatternProps {
     className?: string;
     opacity?: number;
@@ -16,6 +14,7 @@ export default function GeometricPattern({ className = '', opacity = 0.1 }: Geom
                 className="w-full h-full"
                 style={{ opacity }}
                 xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
             >
                 <defs>
                     <pattern

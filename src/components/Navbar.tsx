@@ -57,11 +57,11 @@ export default function Navbar() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-parchment/95 backdrop-blur-md shadow-book border-b-2 border-ink-light border-opacity-20 py-3'
-            : 'bg-transparent py-5'
+            ? 'bg-parchment-light/95 backdrop-blur-md shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1),inset_0_1px_0_rgba(255,255,255,0.6)] border-b-2 border-ink-light/20 py-2 sm:py-3'
+            : 'bg-transparent py-3 sm:py-4 lg:py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo - Monogram Style */}
           <motion.a
             href="#home"
@@ -69,14 +69,14 @@ export default function Navbar() {
               e.preventDefault();
               handleNavClick('#home');
             }}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 sm:gap-3 group"
           >
-            <div className={`w-12 h-12 ${isScrolled ? 'bg-accent-primary' : 'bg-accent-primary'} bg-opacity-10 rounded-sm flex items-center justify-center border-2 border-accent-primary border-opacity-30 group-hover:border-opacity-100 transition-all duration-300 shadow-sm`}>
-              <span className="text-2xl font-heading font-bold text-accent-primary">F</span>
+            <div className="w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 bg-gold-dark/10 rounded-sm flex items-center justify-center border-2 border-gold-dark/30 group-hover:border-gold-dark transition-all duration-300 shadow-sm">
+              <span className="text-xl sm:text-2xl font-heading font-bold text-gold-dark">F</span>
             </div>
             <div className="hidden md:block">
-              <div className="text-lg font-display font-bold text-ink-black">Fidha Fathima</div>
-              <div className="text-xs text-accent-primary font-medium tracking-wider">Portfolio</div>
+              <div className="text-base sm:text-lg font-display font-bold text-ink-black">Fidha Fathima</div>
+              <div className="text-xs text-gold-dark font-medium tracking-wider">Portfolio</div>
             </div>
           </motion.a>
 
@@ -90,20 +90,20 @@ export default function Navbar() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 group ${
+                className={`relative px-3 xl:px-4 py-2 text-sm font-medium transition-all duration-300 group ${
                   activeSection === item.href.substring(1)
-                    ? 'text-accent-primary'
+                    ? 'text-gold-dark'
                     : 'text-ink-sepia hover:text-ink-black'
                 }`}
               >
-                <span className="flex items-center gap-2">
+                <span className="flex items-center gap-1.5 xl:gap-2">
                   <span className="text-xs font-heading opacity-60">{item.chapter}.</span>
                   <span>{item.name}</span>
                 </span>
                 {activeSection === item.href.substring(1) && (
                   <motion.div
                     layoutId="activeNav"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-accent-primary"
+                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-gold-dark"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -112,12 +112,12 @@ export default function Navbar() {
           </div>
 
           {/* Social Links (Desktop) */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+              className="w-10 h-10 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[44px] min-w-[44px]"
               aria-label="GitHub"
             >
               <FiGithub className="w-5 h-5" />
@@ -126,14 +126,14 @@ export default function Navbar() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+              className="w-10 h-10 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[44px] min-w-[44px]"
               aria-label="LinkedIn"
             >
               <FiLinkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:contact@fidhafathima.dev"
-              className="w-10 h-10 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+              className="w-10 h-10 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[44px] min-w-[44px]"
               aria-label="Email"
             >
               <FiMail className="w-5 h-5" />
@@ -143,7 +143,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden w-10 h-10 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-black hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+            className="lg:hidden w-11 h-11 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-black hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[44px] min-w-[44px]"
             aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? (
@@ -166,7 +166,10 @@ export default function Navbar() {
             className="fixed inset-0 z-40 lg:hidden"
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-ink-black bg-opacity-40 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
+            <div 
+              className="absolute inset-0 bg-ink-black/40 backdrop-blur-sm" 
+              onClick={() => setIsMobileMenuOpen(false)} 
+            />
             
             {/* Menu Panel */}
             <motion.div
@@ -174,17 +177,17 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="absolute inset-y-0 right-0 w-full max-w-sm bg-parchment shadow-book border-l-2 border-ink-light border-opacity-20"
+              className="absolute inset-y-0 right-0 w-full max-w-sm bg-parchment-light shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1),inset_0_1px_0_rgba(255,255,255,0.6)] border-l-2 border-ink-light/20"
             >
               {/* Background Pattern */}
-              <div className="absolute inset-0 dot-pattern opacity-50" />
+              <div className="absolute inset-0 bg-[radial-gradient(circle,_#4A3F35_1px,_transparent_1px)] bg-[length:24px_24px] opacity-[0.03]" />
               
-              <div className="relative z-10 flex flex-col h-full p-8">
+              <div className="relative z-10 flex flex-col h-full p-6 sm:p-8">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-12">
+                <div className="flex items-center justify-between mb-8 sm:mb-10">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-accent-primary bg-opacity-10 rounded-sm flex items-center justify-center border-2 border-accent-primary border-opacity-30">
-                      <FiBook className="w-6 h-6 text-accent-primary" />
+                    <div className="w-12 h-12 bg-gold-dark/10 rounded-sm flex items-center justify-center border-2 border-gold-dark/30">
+                      <FiBook className="w-6 h-6 text-gold-dark" />
                     </div>
                     <div>
                       <div className="text-sm font-display font-bold text-ink-black">Contents</div>
@@ -193,14 +196,14 @@ export default function Navbar() {
                   </div>
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-10 h-10 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+                    className="w-11 h-11 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[44px] min-w-[44px]"
                   >
                     <FiX className="w-6 h-6" />
                   </button>
                 </div>
 
                 {/* Navigation Items - Table of Contents Style */}
-                <nav className="flex-1 space-y-2">
+                <nav className="flex-1 space-y-2 overflow-y-auto">
                   {navItems.map((item, index) => (
                     <motion.a
                       key={item.name}
@@ -212,15 +215,15 @@ export default function Navbar() {
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 + 0.1 }}
-                      className={`flex items-center justify-between p-4 rounded-sm border-2 ${
+                      className={`flex items-center justify-between p-3 sm:p-4 rounded-sm border-2 ${
                         activeSection === item.href.substring(1)
-                          ? 'bg-accent-primary bg-opacity-10 border-accent-primary text-accent-primary'
-                          : 'border-transparent hover:bg-accent-primary hover:bg-opacity-5 text-ink-sepia'
-                      } transition-all duration-300`}
+                          ? 'bg-gold-dark/10 border-gold-dark text-gold-dark'
+                          : 'border-transparent hover:bg-gold-dark/5 text-ink-sepia'
+                      } transition-all duration-300 min-h-[52px]`}
                     >
-                      <div className="flex items-center gap-4">
-                        <span className="text-lg font-heading font-medium">{item.chapter}</span>
-                        <span className="text-lg font-display font-semibold">{item.name}</span>
+                      <div className="flex items-center gap-3 sm:gap-4">
+                        <span className="text-base sm:text-lg font-heading font-medium w-6">{item.chapter}</span>
+                        <span className="text-base sm:text-lg font-display font-semibold">{item.name}</span>
                       </div>
                       <span className="text-xs opacity-60">→</span>
                     </motion.a>
@@ -228,14 +231,14 @@ export default function Navbar() {
                 </nav>
 
                 {/* Social Links */}
-                <div className="pt-8 border-t-2 border-ink-light border-opacity-20">
+                <div className="pt-6 sm:pt-8 border-t-2 border-ink-light/20 mt-6 sm:mt-8">
                   <p className="text-xs text-ink-muted uppercase tracking-wider mb-4 text-center">Connect</p>
-                  <div className="flex justify-center gap-4">
+                  <div className="flex justify-center gap-3 sm:gap-4">
                     <a
                       href="https://github.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+                      className="w-12 h-12 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[48px] min-w-[48px]"
                       aria-label="GitHub"
                     >
                       <FiGithub className="w-6 h-6" />
@@ -244,14 +247,14 @@ export default function Navbar() {
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+                      className="w-12 h-12 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[48px] min-w-[48px]"
                       aria-label="LinkedIn"
                     >
                       <FiLinkedin className="w-6 h-6" />
                     </a>
                     <a
                       href="mailto:contact@fidhafathima.dev"
-                      className="w-12 h-12 border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary transition-all duration-300"
+                      className="w-12 h-12 border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark transition-all duration-300 min-h-[48px] min-w-[48px]"
                       aria-label="Email"
                     >
                       <FiMail className="w-6 h-6" />

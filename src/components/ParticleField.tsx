@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Particle {
     x: number;
@@ -19,8 +19,21 @@ export default function ParticleField() {
     const mouseRef = useRef({ x: 0, y: 0 });
     const particlesRef = useRef<Particle[]>([]);
     const animationRef = useRef<number>(0);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        // Skip particles on mobile for better performance
+        if (isMobile) {
+            return () => window.removeEventListener('resize', checkMobile);
+        }
+
         const canvas = canvasRef.current;
         if (!canvas) return;
 
@@ -40,8 +53,8 @@ export default function ParticleField() {
         window.addEventListener('resize', resize);
         window.addEventListener('mousemove', handleMouse);
 
-        // Create particles
-        const count = Math.min(100, Math.floor(window.innerWidth / 12));
+        // Create particles - fewer for better performance
+        const count = Math.min(60, Math.floor(window.innerWidth / 16));
         particlesRef.current = Array.from({ length: count }, () => ({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -107,17 +120,19 @@ export default function ParticleField() {
                 ctx.fillStyle = `hsla(${p.hue}, 80%, 70%, ${p.opacity})`;
                 ctx.fill();
 
-                // Draw connections with limited distance and opacity
-                for (let j = i + 1; j < particles.length; j++) {
-                    const p2 = particles[j];
-                    const d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
-                    if (d < 100) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.strokeStyle = `hsla(263, 70%, 60%, ${0.05 * (1 - d / 100)})`;
-                        ctx.lineWidth = 0.4;
-                        ctx.stroke();
+                // Draw connections with limited distance and opacity - fewer connections for performance
+                if (i % 2 === 0) {
+                    for (let j = i + 1; j < particles.length; j += 2) {
+                        const p2 = particles[j];
+                        const d = Math.sqrt((p.x - p2.x) ** 2 + (p.y - p2.y) ** 2);
+                        if (d < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(p.x, p.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.strokeStyle = `hsla(263, 70%, 60%, ${0.05 * (1 - d / 100)})`;
+                            ctx.lineWidth = 0.4;
+                            ctx.stroke();
+                        }
                     }
                 }
             });
@@ -131,13 +146,17 @@ export default function ParticleField() {
             cancelAnimationFrame(animationRef.current);
             window.removeEventListener('resize', resize);
             window.removeEventListener('mousemove', handleMouse);
+            window.removeEventListener('resize', checkMobile);
         };
-    }, []);
+    }, [isMobile]);
+
+    // Don't render on mobile
+    if (isMobile) return null;
 
     return (
         <canvas
             ref={canvasRef}
-            className="particle-canvas"
+            className="fixed inset-0 pointer-events-none"
             style={{ opacity: 0.6 }}
         />
     );

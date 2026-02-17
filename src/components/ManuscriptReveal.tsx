@@ -22,8 +22,7 @@ export default function ManuscriptReveal({
             whileInView="show"
             initial="hidden"
             viewport={{ once: true, amount: "some" }}
-            className={`inline-block ${className}`}
-            style={{ fontFamily: 'var(--font-heading)' }}
+            className={`inline-block font-heading ${className}`}
         >
             {characters.map((char, i) => (
                 <motion.span

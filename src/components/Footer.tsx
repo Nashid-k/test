@@ -7,7 +7,7 @@ import { useInView } from 'react-intersection-observer';
 export default function Footer() {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1,
+    threshold: 0.05,
   });
 
   const scrollToTop = () => {
@@ -17,12 +17,12 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="relative bg-parchment border-t-2 border-ink-light border-opacity-20 py-20 md:py-24"
+      className="relative bg-parchment-light border-t-2 border-ink-light/20 py-16 sm:py-20 lg:py-24"
     >
       {/* Background Texture */}
-      <div className="absolute inset-0 dot-pattern" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle,_#4A3F35_1px,_transparent_1px)] bg-[length:24px_24px] opacity-[0.04]" />
 
-      <div className="book-container relative z-10">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -30,16 +30,18 @@ export default function Footer() {
           className="text-center"
         >
           {/* Opening Ornament */}
-          <div className="ornamental-divider text-xl mb-10">✦ ✦ ✦</div>
+          <div className="text-gold-dark text-xl sm:text-2xl mb-8 sm:mb-10 tracking-[1rem]">✦ ✦ ✦</div>
 
           {/* Epilogue Label */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
-            <span className="chapter-number">Epilogue</span>
+            <span className="block text-xs sm:text-sm font-heading text-gold-dark uppercase tracking-[0.3em]">
+              Epilogue
+            </span>
           </motion.div>
 
           {/* Name - Signature Style */}
@@ -47,7 +49,7 @@ export default function Footer() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={inView ? { opacity: 1, scale: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-5xl md:text-6xl font-heading font-medium text-ink-black mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-heading font-medium text-ink-black mb-3 sm:mb-4"
           >
             Fidha Fathima
           </motion.h2>
@@ -56,12 +58,12 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="mb-10"
+            className="mb-8 sm:mb-10"
           >
-            <p className="text-accent-primary font-display text-xl font-semibold italic">
+            <p className="text-gold-dark font-display text-lg sm:text-xl font-semibold italic">
               Full-Stack Developer
             </p>
-            <div className="w-24 h-px bg-accent-primary mx-auto mt-4 opacity-30" />
+            <div className="w-20 sm:w-24 h-px bg-gold-dark mx-auto mt-3 sm:mt-4 opacity-30" />
           </motion.div>
 
           {/* Tagline */}
@@ -69,9 +71,9 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="reading-column mx-auto mb-12"
+            className="max-w-xl mx-auto mb-10 sm:mb-12 px-4"
           >
-            <p className="text-lg text-ink-sepia leading-loose font-accent italic">
+            <p className="text-base sm:text-lg text-ink-sepia leading-relaxed font-accent italic">
               "Every line of code is a verse in the poetry of creation. 
               Every project, a chapter in the story of innovation."
             </p>
@@ -82,51 +84,51 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex items-center justify-center gap-6 mb-12 flex-wrap"
+            className="flex items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-12 flex-wrap"
           >
             <a
               href="https://github.com/fidhafathima"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 bg-bg-card border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary hover:shadow-book transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-paper-warm border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark shadow-[0_2px_4px_rgba(26,21,17,0.04),0_4px_12px_rgba(26,21,17,0.06)] hover:shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1)] transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px]"
               aria-label="GitHub"
             >
-              <FiGithub className="w-6 h-6" />
+              <FiGithub className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="https://linkedin.com/in/fidhafathima"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 bg-bg-card border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary hover:shadow-book transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-paper-warm border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark shadow-[0_2px_4px_rgba(26,21,17,0.04),0_4px_12px_rgba(26,21,17,0.06)] hover:shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1)] transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px]"
               aria-label="LinkedIn"
             >
-              <FiLinkedin className="w-6 h-6" />
+              <FiLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="mailto:contact@fidhafathima.dev"
-              className="w-14 h-14 bg-bg-card border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary hover:shadow-book transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-paper-warm border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark shadow-[0_2px_4px_rgba(26,21,17,0.04),0_4px_12px_rgba(26,21,17,0.06)] hover:shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1)] transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px]"
               aria-label="Email"
             >
-              <FiMail className="w-6 h-6" />
+              <FiMail className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
               href="/Fidha_Fathima_Resume.pdf"
               download="Fidha_Fathima_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 bg-bg-card border-2 border-ink-light border-opacity-20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-accent-primary hover:border-accent-primary hover:shadow-book transition-all duration-300 hover:scale-110"
+              className="w-12 h-12 sm:w-14 sm:h-14 bg-paper-warm border-2 border-ink-light/20 rounded-sm flex items-center justify-center text-ink-sepia hover:text-gold-dark hover:border-gold-dark shadow-[0_2px_4px_rgba(26,21,17,0.04),0_4px_12px_rgba(26,21,17,0.06)] hover:shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1)] transition-all duration-300 hover:scale-110 min-h-[48px] min-w-[48px]"
               aria-label="Download Resume"
               title="Download Resume"
             >
-              <FiDownload className="w-6 h-6" />
+              <FiDownload className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
           </motion.div>
 
           {/* Divider with Ornament */}
-          <div className="flex items-center justify-center mb-10">
-            <div className="flex-1 max-w-xs h-px bg-gradient-to-r from-transparent via-accent-primary to-transparent opacity-20" />
-            <span className="px-6 text-accent-primary text-sm">✦</span>
-            <div className="flex-1 max-w-xs h-px bg-gradient-to-r from-transparent via-accent-primary to-transparent opacity-20" />
+          <div className="flex items-center justify-center mb-8 sm:mb-10">
+            <div className="flex-1 max-w-xs h-px bg-gradient-to-r from-transparent via-gold-dark/20 to-transparent" />
+            <span className="px-4 sm:px-6 text-gold-dark text-sm">✦</span>
+            <div className="flex-1 max-w-xs h-px bg-gradient-to-r from-transparent via-gold-dark/20 to-transparent" />
           </div>
 
           {/* Copyright - Book Colophon Style */}
@@ -145,16 +147,18 @@ export default function Footer() {
           </motion.div>
 
           {/* Closing Ornament */}
-          <div className="ornamental-divider text-xl mt-10">✦</div>
+          <div className="text-gold-dark text-xl sm:text-2xl mt-8 sm:mt-10 tracking-[1rem]">✦</div>
 
           {/* Final Page Mark */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-8"
+            className="mt-6 sm:mt-8"
           >
-            <p className="page-number">— End of Portfolio —</p>
+            <p className="text-sm font-heading text-ink-muted italic">
+              — End of Portfolio —
+            </p>
           </motion.div>
         </motion.div>
 
@@ -164,13 +168,11 @@ export default function Footer() {
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ delay: 1.2, duration: 0.6 }}
           onClick={scrollToTop}
-          className="fixed bottom-10 right-10 w-14 h-14 bg-accent-primary text-paper-cream rounded-sm shadow-book hover:shadow-lg transition-all duration-300 hover:scale-110 z-50 border-2 border-accent-primary hover:bg-gold-dark"
+          className="fixed bottom-6 sm:bottom-8 lg:bottom-10 right-6 sm:right-8 lg:right-10 w-12 h-12 sm:w-14 sm:h-14 bg-gold-dark text-paper-cream rounded-sm shadow-[0_4px_8px_rgba(26,21,17,0.08),0_8px_24px_rgba(26,21,17,0.1),inset_0_1px_0_rgba(255,255,255,0.6)] hover:shadow-lg transition-all duration-300 hover:scale-110 z-50 border-2 border-gold-dark hover:bg-gold flex flex-col items-center justify-center min-h-[48px] min-w-[48px]"
           aria-label="Back to top"
         >
-          <div className="flex flex-col items-center justify-center">
-            <FiArrowUp className="w-6 h-6 mb-0.5" />
-            <span className="text-[8px] font-medium tracking-wider uppercase">Top</span>
-          </div>
+          <FiArrowUp className="w-5 h-5 sm:w-6 sm:h-6 mb-0.5" />
+          <span className="text-[8px] font-medium tracking-wider uppercase">Top</span>
         </motion.button>
       </div>
     </footer>

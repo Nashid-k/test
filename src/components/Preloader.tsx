@@ -31,27 +31,27 @@ export default function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-parchment overflow-hidden"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-parchment-light overflow-hidden"
         >
           {/* Paper Texture Background */}
-          <div className="absolute inset-0 pointer-events-none dot-pattern" />
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle,_#4A3F35_1px,_transparent_1px)] bg-[length:24px_24px] opacity-[0.03]" />
           
           {/* Subtle Vignette */}
-          <div className="absolute inset-0 vignette" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_rgba(26,21,17,0.03)_70%,_rgba(26,21,17,0.08)_100%)] pointer-events-none" />
 
-          <div className="relative flex flex-col items-center gap-10 z-10 px-6">
+          <div className="relative flex flex-col items-center gap-6 sm:gap-8 lg:gap-10 z-10 px-6">
             {/* Opening Ornament */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-accent-primary text-2xl mb-4"
+              className="text-gold-dark text-xl sm:text-2xl mb-2 sm:mb-4"
             >
               ✦
             </motion.div>
 
             {/* Animated Name - Book Title Style */}
-            <div className="flex gap-2 md:gap-3 overflow-hidden">
+            <div className="flex gap-1 sm:gap-2 md:gap-3 overflow-hidden">
               {nameLetters.map((letter, i) => (
                 <motion.span
                   key={i}
@@ -62,7 +62,7 @@ export default function Preloader() {
                     duration: 0.8,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="text-6xl md:text-8xl lg:text-9xl font-heading font-medium text-ink-black"
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading font-medium text-ink-black"
                   style={{ textShadow: '2px 2px 4px rgba(26, 21, 17, 0.1)' }}
                 >
                   {letter}
@@ -75,13 +75,13 @@ export default function Preloader() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6 }}
-              className="text-xs md:text-sm uppercase tracking-[0.4em] text-accent-primary font-medium"
+              className="text-xs sm:text-sm uppercase tracking-[0.3em] text-gold-dark font-medium"
             >
               Full-Stack Developer
             </motion.p>
 
             {/* Progress Section */}
-            <div className="flex flex-col items-center gap-6 w-full max-w-md mt-8">
+            <div className="flex flex-col items-center gap-4 sm:gap-6 w-full max-w-xs sm:max-w-sm md:max-w-md mt-4 sm:mt-6">
               {/* Loading Text */}
               <motion.p
                 initial={{ opacity: 0 }}
@@ -95,17 +95,17 @@ export default function Preloader() {
               {/* Elegant Progress Bar - Book Underline Style */}
               <div className="relative w-full">
                 {/* Background line */}
-                <div className="h-px bg-ink-light bg-opacity-20 w-full" />
+                <div className="h-px bg-ink-light/20 w-full" />
                 {/* Animated progress */}
                 <motion.div
-                  className="absolute top-0 left-0 h-px bg-accent-primary"
+                  className="absolute top-0 left-0 h-px bg-gold-dark"
                   initial={{ width: 0 }}
                   animate={{ width: `${counter}%` }}
                   transition={{ ease: "linear" }}
                 />
                 {/* Progress marker */}
                 <motion.div
-                  className="absolute top-0 w-2 h-2 rounded-full bg-accent-primary"
+                  className="absolute top-0 w-2 h-2 rounded-full bg-gold-dark"
                   initial={{ left: 0 }}
                   animate={{ left: `${counter}%` }}
                   transition={{ ease: "linear" }}
@@ -118,13 +118,13 @@ export default function Preloader() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="flex items-center gap-3"
+                className="flex items-center gap-2 sm:gap-3"
               >
-                <span className="text-sm font-heading text-ink-muted">
+                <span className="text-sm sm:text-base font-heading text-ink-muted">
                   {Math.min(counter, 100)}
                 </span>
                 <span className="text-xs text-ink-light">/</span>
-                <span className="text-sm font-heading text-ink-muted">100</span>
+                <span className="text-sm sm:text-base font-heading text-ink-muted">100</span>
               </motion.div>
             </div>
 
@@ -133,7 +133,7 @@ export default function Preloader() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="text-accent-primary text-xl mt-8"
+              className="text-gold-dark text-lg sm:text-xl mt-4 sm:mt-6"
             >
               ✦
             </motion.div>
@@ -141,14 +141,14 @@ export default function Preloader() {
 
           {/* Decorative Book Corners */}
           {[
-            { position: 'top-8 left-8', borders: 'border-t-2 border-l-2' },
-            { position: 'top-8 right-8', borders: 'border-t-2 border-r-2' },
-            { position: 'bottom-8 left-8', borders: 'border-b-2 border-l-2' },
-            { position: 'bottom-8 right-8', borders: 'border-b-2 border-r-2' },
+            { position: 'top-6 left-6 sm:top-8 sm:left-8', borders: 'border-t-2 border-l-2' },
+            { position: 'top-6 right-6 sm:top-8 sm:right-8', borders: 'border-t-2 border-r-2' },
+            { position: 'bottom-6 left-6 sm:bottom-8 sm:left-8', borders: 'border-b-2 border-l-2' },
+            { position: 'bottom-6 right-6 sm:bottom-8 sm:right-8', borders: 'border-b-2 border-r-2' },
           ].map((corner, i) => (
             <motion.div
               key={i}
-              className={`absolute w-16 h-16 md:w-20 md:h-20 border-accent-primary border-opacity-20 ${corner.position} ${corner.borders}`}
+              className={`absolute w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 border-gold-dark/20 ${corner.position} ${corner.borders}`}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.6 + i * 0.1, duration: 0.6 }}
@@ -157,14 +157,14 @@ export default function Preloader() {
 
           {/* Corner Ornaments */}
           {[
-            { position: 'top-6 left-6', rotate: '0deg' },
-            { position: 'top-6 right-6', rotate: '90deg' },
-            { position: 'bottom-6 left-6', rotate: '-90deg' },
-            { position: 'bottom-6 right-6', rotate: '180deg' },
+            { position: 'top-4 left-4 sm:top-6 sm:left-6', rotate: '0deg' },
+            { position: 'top-4 right-4 sm:top-6 sm:right-6', rotate: '90deg' },
+            { position: 'bottom-4 left-4 sm:bottom-6 sm:left-6', rotate: '-90deg' },
+            { position: 'bottom-4 right-4 sm:bottom-6 sm:right-6', rotate: '180deg' },
           ].map((ornament, i) => (
             <motion.div
               key={`ornament-${i}`}
-              className={`absolute ${ornament.position} text-accent-primary text-sm opacity-30`}
+              className={`absolute ${ornament.position} text-gold-dark text-xs sm:text-sm opacity-30`}
               style={{ transform: `rotate(${ornament.rotate})` }}
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 0.3 }}

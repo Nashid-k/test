@@ -1,10 +1,26 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+    const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
+        // Check if mobile device
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+
+        // Skip Lenis on mobile for better performance
+        if (isMobile) {
+            window.scrollTo(0, 0);
+            return () => window.removeEventListener('resize', checkMobile);
+        }
+
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -29,8 +45,9 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         return () => {
             lenis.destroy();
             cancelAnimationFrame(rafId);
+            window.removeEventListener('resize', checkMobile);
         };
-    }, []);
+    }, [isMobile]);
 
     return <div className="relative">{children}</div>;
 }
