@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import '../../assets/styles/Navigation.css';
 
 const chapters = [
     { id: 'hero', label: 'Cover', numeral: 'I' },

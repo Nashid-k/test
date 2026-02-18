@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import InkBlot from './common/InkBlot';
-
+import InkBlot from '../ui/InkBlot';
+import './../../assets/styles/Hero.css';
 const cornerFlourish = (rotation: number, top?: string, bottom?: string, left?: string, right?: string) => (
     <svg
         width="80" height="80"
@@ -126,7 +126,7 @@ export default function Hero() {
                             border: '1px solid var(--umber)',
                         }}>
                             <img
-                                src="/profile.jpeg"
+                                src="/src/assets/images/profile.jpg"
                                 alt="Fidha Fathima M"
                                 style={{
                                     width: '100%',

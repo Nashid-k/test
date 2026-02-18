@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
-import InkBlot from './common/InkBlot'
-import './Skills.css'
+import InkBlot from '../ui/InkBlot'
+import '../../assets/styles/Skills.css'
 
 const skillGroups = [
     {

@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import '../../assets/styles/Footer.css';
 
 export default function Footer() {
     const ref = useRef(null);

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import InkBlot from './common/InkBlot'
-import './Education.css'
+import InkBlot from '../ui/InkBlot'
+import '../../assets/styles/Education.css'
 
 export default function Education() {
     return (

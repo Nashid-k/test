@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import InkBlot from './common/InkBlot'
-import './Contact.css'
+import InkBlot from '../ui/InkBlot'
+import '../../assets/styles/Contact.css'
 
 const socialLinks = [
     { label: 'LinkedIn', icon: '🔗', url: 'https://www.linkedin.com/in/fidha-fathima-m-k/' },

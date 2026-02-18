@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import './DustParticles.css'
+import '../../assets/styles/DustParticles.css'
 
 export default function DustParticles() {
     const containerRef = useRef<HTMLDivElement>(null)

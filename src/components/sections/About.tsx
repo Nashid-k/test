@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import InkBlot from './common/InkBlot'
-import './About.css'
+import InkBlot from '../ui/InkBlot'
+import '../../assets/styles/About.css'
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
