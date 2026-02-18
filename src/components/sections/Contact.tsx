@@ -3,10 +3,56 @@ import InkBlot from '../ui/InkBlot'
 import '../../assets/styles/Contact.css'
 
 const socialLinks = [
-    { label: 'LinkedIn', icon: '🔗', url: 'https://www.linkedin.com/in/fidha-fathima-m-k/' },
-    { label: 'GitHub', icon: '⚙', url: 'https://github.com/Nashid-k' },
-    { label: 'LeetCode', icon: '📊', url: 'https://leetcode.com/u/FIDHA_FATHIMA_MK/' },
-    { label: 'Portfolio', icon: '🌐', url: 'https://portofoliofidha.vercel.app/' },
+    {
+        label: 'LinkedIn',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+                {/* Sketchy overlay */}
+                <path d="M2 9 L6 21 M2 21 L6 9" opacity="0.2" strokeWidth="0.5" />
+            </svg>
+        ),
+        url: 'https://www.linkedin.com/in/fidha-fathima-m/'
+    },
+    {
+        label: 'GitHub',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                {/* Sketchy overlay */}
+                <path d="M12 2 L12 22 M2 12 L22 12" opacity="0.1" strokeWidth="0.5" />
+            </svg>
+        ),
+        url: 'https://github.com/fidhafathima-m'
+    },
+    {
+        label: 'Instagram',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                {/* Sketchy spirals */}
+                <circle cx="12" cy="12" r="5" strokeDasharray="2 2" opacity="0.3" />
+            </svg>
+        ),
+        url: 'https://www.instagram.com/_fidha.m/'
+    },
+    {
+        label: 'Pinterest',
+        icon: (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="8" x2="12" y2="22" />
+                <path d="M12 22c-1.5-4-3-6-3-9a3 3 0 1 1 6 0c0 3-1.5 5-3 9z" />
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" />
+                {/* Center P sketch */}
+                <path d="M12 8 a2 2 0 1 1 0 4 h-2 v-4 z" fill="currentColor" opacity="0.2" />
+            </svg>
+        ),
+        url: 'https://in.pinterest.com/fidhumusthafa/'
+    },
 ]
 
 export default function Contact() {
