@@ -37,7 +37,7 @@ export default function Education() {
                 initial={{ scaleY: 0, transformOrigin: 'top' }}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 1.5, ease: [0.7, 0, 0.3, 1] as any }}
+                transition={{ duration: 1.5, ease: [0.7, 0, 0.3, 1] as const }}
             >
                 <div className="scroll-top-rod">
                     <div className="rod-knob left" />

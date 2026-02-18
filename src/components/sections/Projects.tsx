@@ -75,7 +75,7 @@ export default function Projects() {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.2 }}
-                        transition={{ duration: 1.2, delay: index * 0.2, ease: [0.7, 0, 0.3, 1] as any }}
+                        transition={{ duration: 1.2, delay: index * 0.2, ease: [0.7, 0, 0.3, 1] as const }}
                     >
                         <div className="folio-spread rough-edge ink-filter">
                             <InkBlot rotation={45} scale={1.2} position={{ top: '10%', left: '5%' }} opacity={0.1} />

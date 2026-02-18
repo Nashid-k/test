@@ -85,7 +85,7 @@ export default function Navigation() {
                         className="nav-ribbon rough-edge ink-filter"
                         initial={{ x: 100, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
-                        transition={{ delay: 3.5 + i * 0.1, duration: 0.8, ease: [0.7, 0, 0.3, 1] as any }}
+                        transition={{ delay: 3.5 + i * 0.1, duration: 0.8, ease: [0.7, 0, 0.3, 1] as const }}
                         whileHover={{ x: -10, transition: { duration: 0.2 } }}
                         onClick={() => scrollTo(ch.id)}
                         style={{

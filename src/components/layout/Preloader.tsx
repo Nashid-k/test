@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import InkReveal from '../ui/InkReveal';
 import '../../assets/styles/Preloader.css';
 
 export default function Preloader() {

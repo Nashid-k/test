@@ -16,7 +16,7 @@ const doodles = [
 ]
 
 export default function Marginalia() {
-    const [instances, setInstances] = useState<{ id: number, x: number, y: number, doodleIndex: number, rotate: number, scale: number }[]>([])
+    const [instances, setInstances] = useState<{ id: number, x: number, y: number, doodleIndex: number, rotate: number, scale: number, duration: number }[]>([])
 
     useEffect(() => {
         const newInstances = Array.from({ length: 12 }).map((_, i) => ({
@@ -26,7 +26,9 @@ export default function Marginalia() {
             doodleIndex: Math.floor(Math.random() * doodles.length),
             rotate: Math.random() * 360,
             scale: 0.5 + Math.random() * 0.8,
+            duration: 4 + Math.random() * 4,
         }))
+
         setInstances(newInstances)
     }, [])
 
@@ -53,7 +55,7 @@ export default function Marginalia() {
                         rotate: [inst.rotate, inst.rotate + 10, inst.rotate],
                     }}
                     transition={{
-                        duration: 4 + Math.random() * 4,
+                        duration: inst.duration,
                         repeat: Infinity,
                         ease: "easeInOut"
                     }}

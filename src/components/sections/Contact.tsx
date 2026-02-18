@@ -90,7 +90,7 @@ export default function Contact() {
                 initial={{ rotateX: -90, opacity: 0 }}
                 whileInView={{ rotateX: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 1.2, ease: [0.7, 0, 0.3, 1] as any }}
+                transition={{ duration: 1.2, ease: [0.7, 0, 0.3, 1] as const }}
             >
                 <InkBlot rotation={180} scale={1.5} position={{ top: '-10%', left: '50%' }} opacity={0.2} />
                 <div className="envelope-flap" />

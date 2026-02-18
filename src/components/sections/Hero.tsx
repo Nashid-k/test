@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import InkBlot from '../ui/InkBlot';
 import './../../assets/styles/Hero.css';
+import profileImg from '../../assets/images/profile.jpg';
 const cornerFlourish = (rotation: number, top?: string, bottom?: string, left?: string, right?: string) => (
     <svg
         width="80" height="80"
@@ -37,7 +38,7 @@ const cornerFlourish = (rotation: number, top?: string, bottom?: string, left?: 
     </svg>
 );
 
-const easeSticky = [0.7, 0, 0.3, 1] as any;
+const easeSticky = [0.7, 0, 0.3, 1] as const;
 
 export default function Hero() {
     return (
@@ -109,6 +110,10 @@ export default function Hero() {
                         filter: 'url(#inkBleed)',
                     }}
                 >
+                    import profileImg from '../../assets/images/profile.jpg';
+                    // ... (rest of imports)
+
+                    // ... inside the component
                     <div style={{
                         width: 'clamp(140px, 25vw, 200px)',
                         height: 'clamp(140px, 25vw, 200px)',
@@ -126,7 +131,7 @@ export default function Hero() {
                             border: '1px solid var(--umber)',
                         }}>
                             <img
-                                src="/src/assets/images/profile.jpg"
+                                src={profileImg}
                                 alt="Fidha Fathima M"
                                 style={{
                                     width: '100%',

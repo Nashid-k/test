@@ -44,7 +44,7 @@ const cardVariant = {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as any },
+        transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] as const },
     },
 }
 
@@ -53,7 +53,7 @@ const badgeVariant = {
     visible: {
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] as any },
+        transition: { duration: 0.4, ease: [0.34, 1.56, 0.64, 1] as const },
     },
 }
 
