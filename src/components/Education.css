@@ -1,0 +1,149 @@
+.education-section {
+    position: relative;
+}
+
+.diploma-scroll {
+    max-width: 650px;
+    margin: 0 auto;
+    transform-origin: top;
+}
+
+.scroll-top-rod,
+.scroll-bottom-rod {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    height: 20px;
+}
+
+.rod-knob {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, var(--gold-light), var(--gold-dark));
+    box-shadow: 1px 2px 6px rgba(26, 16, 8, 0.3);
+}
+
+.rod-bar {
+    flex: 1;
+    height: 10px;
+    background: linear-gradient(180deg, var(--gold), var(--gold-dark), var(--gold));
+    box-shadow: 0 2px 6px rgba(26, 16, 8, 0.2);
+}
+
+.scroll-body {
+    background: linear-gradient(180deg, var(--parchment-dark) 0%, var(--parchment-light) 5%, var(--parchment) 50%, var(--parchment-light) 95%, var(--parchment-dark) 100%);
+    border-left: 3px solid var(--gold-light);
+    border-right: 3px solid var(--gold-light);
+    padding: 0.5rem;
+}
+
+.scroll-border-frame {
+    border: 2px solid var(--gold-light);
+    padding: 3rem 2.5rem;
+    position: relative;
+}
+
+.scroll-border-frame::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px dashed var(--gold-light);
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.diploma-content {
+    text-align: center;
+}
+
+.diploma-seal {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.diploma-degree {
+    font-family: var(--ff-display);
+    font-size: var(--fs-h2);
+    color: var(--umber-dark);
+    margin-bottom: 0.5rem;
+}
+
+.diploma-university {
+    font-family: var(--ff-accent);
+    font-size: 1.3rem;
+    color: var(--gold-dark);
+    margin-bottom: 1rem;
+}
+
+.diploma-year {
+    font-family: var(--ff-body);
+    font-size: 1rem;
+    color: var(--umber);
+    letter-spacing: 0.1em;
+    padding: 0.3rem 1.2rem;
+    border: 1px solid var(--gold-light);
+    border-radius: 20px;
+}
+
+.diploma-vine {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.vine-line {
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sage), transparent);
+}
+
+.certification-block {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px dashed var(--gold-light);
+    text-align: center;
+}
+
+.cert-title {
+    font-family: var(--ff-display);
+    font-size: 1rem;
+    color: var(--umber);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.06em;
+}
+
+.cert-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    text-align: left;
+}
+
+.cert-seal {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.cert-item strong {
+    font-family: var(--ff-body);
+    font-size: 1.05rem;
+    color: var(--umber-dark);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.cert-item p {
+    font-size: var(--fs-small);
+    color: var(--umber);
+}
+
+@media (max-width: 768px) {
+    .scroll-border-frame {
+        padding: 2rem 1.5rem;
+    }
+}

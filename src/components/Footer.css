@@ -1,0 +1,53 @@
+.footer-section {
+    position: relative;
+    padding: 4rem 2rem 2rem;
+    overflow: hidden;
+}
+
+.footer-colophon {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-endmark {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: 0.5em;
+}
+
+.footer-text {
+    font-family: var(--ff-accent);
+    font-size: 1.1rem;
+    color: var(--umber);
+    margin-bottom: 0.5rem;
+}
+
+.footer-text strong {
+    color: var(--gold-dark);
+    font-weight: 600;
+}
+
+.footer-credit {
+    font-family: var(--ff-body);
+    font-size: var(--fs-small);
+    color: var(--umber);
+    opacity: 0.7;
+}
+
+.footer-name {
+    font-family: var(--ff-accent);
+    color: var(--gold-dark);
+    font-weight: 500;
+}
+
+.footer-burn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(180deg, transparent, rgba(92, 61, 46, 0.1), rgba(58, 37, 25, 0.2));
+    pointer-events: none;
+}

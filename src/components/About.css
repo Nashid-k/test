@@ -1,0 +1,126 @@
+.about-section {
+    position: relative;
+}
+
+.about-parchment {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-page {
+    background: linear-gradient(160deg, var(--parchment-light) 0%, var(--parchment) 50%, var(--parchment-dark) 100%);
+    border: 1px solid var(--gold-light);
+    padding: 3rem 3rem 2rem;
+    position: relative;
+    box-shadow:
+        var(--shadow-soft),
+        inset 0 0 50px rgba(201, 169, 78, 0.08);
+}
+
+.about-page::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--crimson), transparent);
+    opacity: 0.3;
+}
+
+.about-page::after {
+    content: '';
+    position: absolute;
+    left: 64px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--crimson), transparent);
+    opacity: 0.15;
+}
+
+.drop-cap-block {
+    display: flex;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    padding-left: 50px;
+}
+
+.drop-cap {
+    font-family: var(--ff-display);
+    font-size: 5rem;
+    line-height: 0.8;
+    float: left;
+    color: var(--crimson);
+    margin-right: 0.5rem;
+    margin-top: 0.1em;
+    text-shadow:
+        2px 2px 0 rgba(201, 169, 78, 0.3),
+        0 0 20px rgba(139, 37, 0, 0.15);
+    background: linear-gradient(180deg, var(--crimson), var(--crimson-light), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.drop-cap-block p {
+    font-size: var(--fs-body);
+    line-height: 1.8;
+    color: var(--ink-light);
+}
+
+.about-text {
+    padding-left: 50px;
+    margin-bottom: 1.5rem;
+    font-size: var(--fs-body);
+    line-height: 1.8;
+    color: var(--ink-light);
+}
+
+.about-text strong {
+    color: var(--umber-dark);
+    font-weight: 600;
+}
+
+.about-marginalia {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed var(--gold-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.marginalia-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--ff-accent);
+    font-size: 1rem;
+    color: var(--umber);
+}
+
+.marginalia-icon {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .about-page {
+        padding: 2rem 1.5rem;
+    }
+
+    .about-page::before,
+    .about-page::after {
+        display: none;
+    }
+
+    .drop-cap-block,
+    .about-text {
+        padding-left: 0;
+    }
+
+    .drop-cap {
+        font-size: 3.5rem;
+    }
+}
