@@ -10,8 +10,6 @@ const socialLinks = [
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                 <rect x="2" y="9" width="4" height="12" />
                 <circle cx="4" cy="4" r="2" />
-                {/* Sketchy overlay */}
-                <path d="M2 9 L6 21 M2 21 L6 9" opacity="0.2" strokeWidth="0.5" />
             </svg>
         ),
         url: 'https://www.linkedin.com/in/fidha-fathima-m/'
@@ -21,8 +19,6 @@ const socialLinks = [
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                {/* Sketchy overlay */}
-                <path d="M12 2 L12 22 M2 12 L22 12" opacity="0.1" strokeWidth="0.5" />
             </svg>
         ),
         url: 'https://github.com/fidhafathima-m'
@@ -34,8 +30,6 @@ const socialLinks = [
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-                {/* Sketchy spirals */}
-                <circle cx="12" cy="12" r="5" strokeDasharray="2 2" opacity="0.3" />
             </svg>
         ),
         url: 'https://www.instagram.com/_fidha.m/'
@@ -43,12 +37,8 @@ const socialLinks = [
     {
         label: 'Pinterest',
         icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="12" y1="8" x2="12" y2="22" />
-                <path d="M12 22c-1.5-4-3-6-3-9a3 3 0 1 1 6 0c0 3-1.5 5-3 9z" />
-                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z" />
-                {/* Center P sketch */}
-                <path d="M12 8 a2 2 0 1 1 0 4 h-2 v-4 z" fill="currentColor" opacity="0.2" />
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.399.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.173 0 7.41 2.967 7.41 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z" />
             </svg>
         ),
         url: 'https://in.pinterest.com/fidhumusthafa/'
