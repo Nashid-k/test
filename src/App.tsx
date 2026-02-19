@@ -8,7 +8,6 @@ import Projects from './components/sections/Projects'
 import Education from './components/sections/Education'
 import Contact from './components/sections/Contact'
 import Footer from './components/layout/Footer'
-import DustParticles from './components/ui/DustParticles'
 import QuillCursor from './components/ui/QuillCursor'
 import Marginalia from './components/layout/Marginalia'
 import SVGFilters from './components/ui/SVGFilters'
@@ -26,7 +25,6 @@ function App() {
     <>
       <SVGFilters />
       <QuillCursor />
-      <DustParticles />
       <Marginalia />
 
       {loading ? (

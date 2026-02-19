@@ -2,17 +2,28 @@ import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 const doodles = [
-    // Heart
-    <path d="M50 80 C20 50 10 30 50 10 C90 30 80 50 50 80" fill="none" stroke="currentColor" strokeWidth="2" />,
-    // Star
-    <path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="none" stroke="currentColor" strokeWidth="2" />,
-    // Sparkle
+    // Eight-point rune star
+    <path d="M50 8 L58 34 L92 34 L64 52 L74 88 L50 66 L26 88 L36 52 L8 34 L42 34 Z" fill="none" stroke="currentColor" strokeWidth="2" />,
+    // Arcane circle
+    <g>
+        <circle cx="50" cy="50" r="34" fill="none" stroke="currentColor" strokeWidth="2" />
+        <circle cx="50" cy="50" r="18" fill="none" stroke="currentColor" strokeWidth="1.2" />
+        <path d="M50 16 L50 84 M16 50 L84 50" stroke="currentColor" strokeWidth="1.2" />
+    </g>,
+    // Spark cross
     <g>
         <path d="M50 20 L50 80 M20 50 L80 50" stroke="currentColor" strokeWidth="2" />
         <path d="M30 30 L70 70 M30 70 L70 30" stroke="currentColor" strokeWidth="1" />
     </g>,
-    // Cute Swirl
-    <path d="M20 50 C20 20 80 20 80 50 C80 80 40 80 40 60 C40 50 60 50 60 60" fill="none" stroke="currentColor" strokeWidth="2" />,
+    // Constellation
+    <g>
+        <circle cx="18" cy="26" r="2" fill="currentColor" />
+        <circle cx="46" cy="14" r="2" fill="currentColor" />
+        <circle cx="76" cy="22" r="2" fill="currentColor" />
+        <circle cx="62" cy="58" r="2" fill="currentColor" />
+        <circle cx="28" cy="72" r="2" fill="currentColor" />
+        <path d="M18 26 L46 14 L76 22 L62 58 L28 72 L18 26" fill="none" stroke="currentColor" strokeWidth="1.2" />
+    </g>,
 ]
 
 export default function Marginalia() {
@@ -22,14 +33,14 @@ export default function Marginalia() {
         const newInstances = Array.from({ length: 12 }).map((_, i) => ({
             id: i,
             x: Math.random() * 90 + 5,
-            y: Math.random() * 5000 + 50,
+            y: Math.random() * 4600 + 80,
             doodleIndex: Math.floor(Math.random() * doodles.length),
             rotate: Math.random() * 360,
-            scale: 0.5 + Math.random() * 0.8,
-            duration: 4 + Math.random() * 4,
+            scale: 0.45 + Math.random() * 0.6,
+            duration: 6 + Math.random() * 6,
         }))
 
-        setInstances(newInstances)
+        setTimeout(() => setInstances(newInstances), 0)
     }, [])
 
     return (
@@ -44,15 +55,15 @@ export default function Marginalia() {
                         position: 'absolute',
                         left: `${inst.x}%`,
                         top: `${inst.y}px`,
-                        color: 'var(--gold)',
-                        opacity: 0.25,
+                        color: 'var(--gold-light)',
+                        opacity: 0.2,
                     }}
                     initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 0.25, scale: inst.scale, rotate: inst.rotate }}
+                    whileInView={{ opacity: 0.2, scale: inst.scale, rotate: inst.rotate }}
                     viewport={{ once: false }}
                     animate={{
-                        y: [0, -10, 0],
-                        rotate: [inst.rotate, inst.rotate + 10, inst.rotate],
+                        y: [0, -7, 0],
+                        rotate: [inst.rotate, inst.rotate + 6, inst.rotate],
                     }}
                     transition={{
                         duration: inst.duration,

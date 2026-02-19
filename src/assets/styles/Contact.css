@@ -123,12 +123,12 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: radial-gradient(circle at 40% 35%, var(--crimson-light) 0%, var(--crimson) 100%);
-    color: var(--cream);
+    background: radial-gradient(circle at 40% 35%, var(--leather-light) 0%, var(--umber-dark) 100%);
+    color: #fff6de;
     box-shadow:
-        0 4px 12px rgba(139, 37, 0, 0.3),
+        0 4px 12px rgba(58, 34, 24, 0.35),
         inset 0 -2px 6px rgba(0, 0, 0, 0.2),
-        inset 0 2px 6px rgba(255, 255, 255, 0.1);
+        inset 0 2px 6px rgba(255, 255, 255, 0.08);
     transition: all 0.3s var(--ease-smooth);
     text-decoration: none;
     justify-content: center;
@@ -136,13 +136,22 @@
 
 .social-seal:hover {
     box-shadow:
-        0 6px 20px rgba(139, 37, 0, 0.4),
-        0 0 20px rgba(201, 169, 78, 0.3);
-    color: var(--cream);
+        0 6px 20px rgba(58, 34, 24, 0.45),
+        0 0 20px rgba(201, 169, 78, 0.22);
+    color: #fff6de;
 }
 
 .seal-icon {
     font-size: 1.4rem;
+    line-height: 1;
+    color: #fff6de;
+}
+
+.seal-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+    stroke: currentColor;
 }
 
 .seal-label {
